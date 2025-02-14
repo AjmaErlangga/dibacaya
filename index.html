@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan anniversary buat Ayangku💝</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url('https://ajmaerlangga.github.io/BuatAyangkuu/Aniversary_bg1.jpg'); /* Ganti dengan URL gambar yang valid */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .content-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #countdown {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+    <script>
+        const accessDate = new Date(2025, 1, 18, 0, 0); // 18 Februari 2025, 00:00
+        const expiryDate = new Date(2025, 1, 20, 23, 59); // 18 Februari 2025, 23:59
+
+        function checkAccess() {
+            const now = new Date();
+            
+            if (now >= accessDate && now <= expiryDate) {
+                window.location.href = "https://ajmaerlangga.github.io/BuatAyangkuu/Script.html"; // Ganti dengan URL yang ingin diakses
+            } else {
+                alert("Di tunggu ya ayangkuu🥰, link nya tersedia tgl 18 nanti😘");
+            }
+        }
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = accessDate - now;
+            
+            if (timeDifference > 0) {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+                
+                document.getElementById("countdown").innerHTML = `Ditunggu ya ayang🥰 bisa di buka dalam: ${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+            } else {
+                document.getElementById("countdown").innerHTML = "Akses sudah tersedia Ayangg😍";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</head>
+<body>
+    <div class="content-box">
+        <h2>Hanya bisa di akses tgl 18</h2>
+        <p id="countdown">Menghitung waktu...</p>
+        <p>Ayangkuu klik tombol di bawah ini ya setelah hitungan mundurnya selesai pas tgl 18😘.</p>
+        <button onclick="checkAccess()">Akses Link</button>
+    </div>
+</body>
+</html>
